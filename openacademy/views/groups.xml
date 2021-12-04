@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <record id="openacademy_managment" model="ir.module.category">  <!-- Access levels Category creation -->
+        <field name="name">OpenAcademy</field>
+        <field name="description">User access levels for OpenAcademy module managment</field>
+        <field name="sequence">-10</field>
+    </record>
+
+    <record id="session_read" model="res.groups">  <!-- User Groups Creation -->
+        <field name="name">Session Read</field>
+        <field name="category_id" ref="openacademy_managment"/>
+    </record>
+
+    <record id="oa_manager" model="res.groups">
+        <field name="name">Manager</field>
+        <field name="category_id" ref="openacademy_managment"/>
+    </record>
+
+</odoo>
+

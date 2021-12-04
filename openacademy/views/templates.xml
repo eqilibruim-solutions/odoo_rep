@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="list_courses" name="OpenAcademy Courses">
+        <t t-call="website.layout">
+            <div class="container oa_container">
+                <ul class="list_courses col-lg-10 mx-auto p-0">
+                    <li t-foreach="courses" t-as="c" class="course_card col-lg-6 p-0">
+                        <h6 class="course_title m-0 mb-2" t-field="c.name"/>
+                        <div class="course_description" t-field="c.description"/>
+                    </li>
+                </ul>
+            </div>
+        </t>
+    </template>
+
+    <template id="create_course" name="Course Creating Page">
+        <t t-call="website.layout">
+            <form action="/create_course" method="POST">
+                <input hidden="true" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+                <label for="name">Course title</label>
+                <input type="text" id="name" name="name"/>
+                <label for="description">Course description</label>
+                <input type="text" id="description" name="description"/>
+
+                <button type="submit">Create course</button>
+            </form>
+        </t>
+    </template>
+
+</odoo>
